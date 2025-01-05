@@ -22,7 +22,7 @@ st.caption("Powered by multiple Hugging Face models")
 # Model selection dropdown
 available_models = {
     "Qwen 2.5 72B Instruct": "Qwen/Qwen2.5-72B-Instruct",
-    "Llama 3.3 70B Instruct": "unsloth/Llama-3.3-70B-Instruct"
+    "Llama 3.3 70B Instruct": "unsloth/Meta-Llama-3.1-8B-bnb-4bit"
 }
 selected_model_name = st.selectbox("Select a Model:", list(available_models.keys()))
 selected_model = available_models[selected_model_name]
