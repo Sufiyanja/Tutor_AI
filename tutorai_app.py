@@ -15,7 +15,7 @@ if not HUGGINGFACE_API_KEY:
 client = InferenceClient(api_key=HUGGINGFACE_API_KEY)
 
 # Streamlit App UI
-st.title("AI Chatbot with Model Selection")
+st.title("Welcome to EDU CHAT-BOT")
 st.subheader("Interact with an AI assistant")
 st.caption("Powered by multiple Hugging Face models")
 
