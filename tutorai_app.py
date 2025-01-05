@@ -40,7 +40,7 @@ st.caption("Powered by Hugging Face models for intelligent, domain-specific resp
 # Model selection dropdown
 available_models = {
     "Qwen 2.5 72B Instruct": "Qwen/Qwen2.5-72B-Instruct",
-    "Llama 3.3 70B Instruct": "unsloth/Meta-Llama-3.1-8B-bnb-4bit"
+    "Llama 3.3 70B Instruct": "meta-llama/Llama-3.3-70B-Instruct"
 }
 selected_model_name = st.selectbox("Select an AI Model:", list(available_models.keys()))
 selected_model = available_models[selected_model_name]
