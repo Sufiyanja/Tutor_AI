@@ -15,9 +15,17 @@ if not HUGGINGFACE_API_KEY:
 client = InferenceClient(api_key=HUGGINGFACE_API_KEY)
 
 # Streamlit App UI
-st.title("Totut AI - Qwen 2.5 72B Chatbot")
-st.subheader("Interact with your AI assistant")
-st.caption("Powered by Qwen2.5-72B-Instruct")
+st.title("AI Chatbot with Model Selection")
+st.subheader("Interact with an AI assistant")
+st.caption("Powered by multiple Hugging Face models")
+
+# Model selection dropdown
+available_models = {
+    "Qwen 2.5 72B Instruct": "Qwen/Qwen2.5-72B-Instruct",
+    "Llama 3.3 70B Instruct": "unsloth/Llama-3.3-70B-Instruct"
+}
+selected_model_name = st.selectbox("Select a Model:", list(available_models.keys()))
+selected_model = available_models[selected_model_name]
 
 # User input section
 user_input = st.text_area("Your Query:", placeholder="Type your question here...", height=100)
@@ -31,10 +39,10 @@ if generate_button:
             # Prepare input messages
             messages = [{"role": "user", "content": user_input}]
 
-            # Query the Hugging Face model
-            st.info("Generating response, please wait...")
+            # Query the selected Hugging Face model
+            st.info(f"Generating response using '{selected_model_name}', please wait...")
             completion = client.chat.completions.create(
-                model="Qwen/Qwen2.5-72B-Instruct",
+                model=selected_model,
                 messages=messages,
                 max_tokens=max_tokens
             )
@@ -50,4 +58,4 @@ if generate_button:
 
 # Footer
 st.write("---")
-st.caption("Powered by Hugging Face API and Qwen 2.5 Models")
+st.caption("Powered by Hugging Face API and Multiple AI Models")
